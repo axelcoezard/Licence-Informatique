@@ -1,0 +1,165 @@
+\documentclass{report}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\title{I22 : Architecture ordinateur et Systèmes d'exploitation}
+\author{Axel Coezard}
+\date{Janvier 2020}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\chapter{Architecture ordinateur}
+
+\section{Introduction}
+
+  Les ordinateurs viennent du besoin de traiter l'information basée sur les nombres.
+
+\section{Ecriture positionnelle}
+
+  \paragraph{def.} Si on utilise n chiffres, ils sont codés par n carractères différents.
+
+  \paragraph{n.\,b.} La valeur de n définie la base.
+
+  \paragraph{e.\,g.} Une base b à exactement b caractères différents: (0, 1, 2, ..., b-1)
+
+\section{Ordres de grandeur}
+
+  \paragraph{def.} Préfixes d'ordre de grandeur basés sur les puissances de 10:
+  \begin{itemize}
+    \item \underline{kilo} (k): 1,000 = $10^{3}$
+    \item \underline{méga} (m): 1,000,000 = $10^{6}$
+    \item \underline{giga} (G): 1,000,000,000 = $10^{9}$
+    \item \underline{téra} (T): $10^{12}$
+    \item \underline{péta} (P): $10^{15}$
+    \item \underline{exa} (E): $10^{18}$
+    \item \underline{zetta} (Z): $10^{21}$
+    \item \underline{yotta} (Y): $10^{24}$
+  \end{itemize}
+
+  \paragraph{def.} Préfixes d'ordre de grandeur basés sur les puissances de 2:
+  \begin{itemize}
+    \item \underline{kibi} (ki): 1,024 = $2^{10}$
+    \item \underline{mibi} (mi): 1,024 * 1,024 = $2^{20}$
+    \item \underline{gibi} (Gi): $2^{30}$
+    \item \underline{Tébi} (Gi): $2^{40}$
+    \item \underline{Pébi} (Pi): $2^{50}$
+    \item \underline{Exbi} (Ei): $2^{60}$
+  \end{itemize}
+
+  \paragraph{n.\,b.} Physiquement, la réalisation matérielle de la representation des nombres en base 2 est limitée sur un nombre de bits fixe.
+
+\section{Arithmétique tronquée}
+
+  \paragraph{def.} Soit le nombre $a$ qui s'écrit sur exactement N bits, si on lui ajoute 1 un bon nombre de fois, on va arriver à la valeur $11......1$ avec N chiffres 1.
+
+  \paragraph{def.} Si on lui ajoute en une fois 1, on appelle addition tronquée à gauche l'opération d'addition qui reste sur N bit.
+
+  \paragraph{def.} Soit E l'ensemble des nombres représentables sur N bits et on le muni de cette opération d'addition tronquée à gauche. (E, +) définit un groupe commutatif cyclique d'ordre $2^{N}$ à:
+  \begin{itemize}
+    \item + interne: $\forall (a,b) \in E^{2}, c = a + b$
+    \item Commutativité: $\forall (a,b) \in E^{2}, a + b = b + a$
+    \item Associativité: $\forall (a,b,c) \in E^{3}, (a + b) + c = a + (b + c)$
+    \item Element neutre 0: $\exists e \in E, \forall a \in E, a + e = e + a = a$
+    \item Element symétrique: $\forall a \in E, s(a)=2^{N}-a$
+  \end{itemize}
+
+  \paragraph{def.} Soit X la multiplication tronquée à gauche, on peut montrer que X est interne $\forall (a,b) \in E, a \times b \in E$:
+  \begin{itemize}
+    \item Commutativité: $\forall (a,b) \in E^{2}, a \times b = b \times a$
+    \item Associativité: $\forall (a,b) \in E^{2}, a \times (b \times c) = (a \times b) \times c$
+    \item Distributivité: $\forall (a, b, c) \in E^{3}, a \times (b + c) = a \times b + a \times c$
+    \item Element neutre 1: $\forall a \in E, a \times 1 = a$
+    \item Element absorbant: $\forall a \in E, a \times 0 = 0$
+  \end{itemize}
+
+  \paragraph{def.} Soit (E,+,$\times$) un anneau d'ordre $2^N$. Il n'y a plus de relation d'ordre car il est cyclique.
+
+\section{Nombres positifs et négatifs}
+
+  \subsection{Nombres signés}
+
+    \paragraph{def.} Les nombres signés sont représentés sur N bits pour $2^{N}$ valeurs. On sépare l'ensemble en 2, une moitiée pour les positifs, l'autre moitiée pour les négatifs. Le bit de poid fort va faire la distinction entre les deux.
+
+  \subsection{Complément logique à 1}
+
+    \paragraph{def.} On sépare l'ensemble des représentation en 2, les positifs et les négatifs, il y aura un bit de signe. Pour trouver la représentation d'un nombre négatif, on fait son complément logique.
+
+  \subsection{Complément logique à 2}
+
+    \paragraph{def.} On sépare l'ensemble des représentation en 2, les positifs et les négatifs, on calcul l'opposé d'un nombre en prenant son complément logique à 1 et en lui ajoutant 1.
+
+  \subsection{Nombres entiers relatifs}
+
+    \begin{itemize}
+      \item \underline{Interêts}: addition direct entre représentation familière.
+      \item \underline{Inconvénients}: il y a une valeur négative en plus, espace non équilibré.
+    \end{itemize}
+
+  \subsection{Représentation biaisée}
+
+    \paragraph{n.\,b.} On va décaler l'espace de représentation via un biais.
+
+    \paragraph{e.\,g.} Avec un biais de 1, on décale d'1 valeur: 0 $\Rightarrow$ -1, 1 $\Rightarrow$ 0, ...
+
+    \paragraph{n.\,b.} On choisit un biais qui va séparer l'espace le plus équilibré (en 2). La valeur du milieu est $\frac{2^{N-1}}{2}$, le biais est $2^{N-1} - 1$.
+
+\section{Polynomes disjonctifs et portes logiques}
+
+  \paragraph{n.\,b.} Lorsqu'on a une foncton $f(x_{1}, x_{2}, ..., x_{n}) \Rightarrow {0, 1}$, cela s'appelle une fonction booléenne. On peut donc exprimer toutes les solutions avec un tableau de verité.
+
+  \paragraph{n.\,b.} On peut écrire f() sous forme de polynome disjonctif ou conjonctifs.
+
+  \subsection{Polynome disjonctif}
+
+    \paragraph{def.} On exprime f comme un polynome booléen qui sera une somme de "et" $\Rightarrow \times$ et de "ou" $\Rightarrow +$.
+
+    \paragraph{n.\,b.} Pour cela, on lit le tableau de valeur et sélectionne toutes les lignes ayant pour valeur 1 par f, et on fait le produit des variables en prenant en compte si elles sont égales à 0 ou à 1.
+
+      % \begin{center}
+      %   \begin{tabular}{ | x | y | z || f | }
+      %     \hline
+      %     0 & 0 & 0 & 1 \\ \hline
+      %     0 & 0 & 1 & 0 \\ \hline
+      %     0 & 1 & 0 & 1 \\ \hline
+      %     0 & 1 & 1 & 1 \\ \hline
+      %     1 & 0 & 0 & 0 \\ \hline
+      %     1 & 0 & 1 & 0 \\ \hline
+      %     1 & 1 & 0 & 0 \\ \hline
+      %     1 & 1 & 1 & 0 \\ \hline
+      %   \end{tabular}
+      % \end{center}
+
+    \paragraph{e.\,g.} On obtient $f =$ $\overline{x}\overline{y}\overline{z}$+$\overline{x}y\overline{z}$+$\overline{x}yz$
+
+  \subsection{Circuits en portes logiques}
+
+  A FAIRE
+
+\section{Talbes de Karnaugh}
+
+  A FAIRE
+
+\section{Système d'exploitation}
+
+  \paragraph{n.\,b.} C'est un programme contenant des ressources (cpu, mémoire, stockage, périphériques). DIfférentes utilisations sont possibles comme l'écriture de programme ou utiliser un programme. L'OS va servir d'interface entre l'utilisation et les ressources.
+
+  \subsection{Système mono-utilisation}
+  \subsection{Système multi-utilisation}
+
+  \subsection{Gestion de l'utilisation}
+  \subsection{Gestion de l'information}
+  \subsection{Gestion des fichiers}
+
+\section{Stratégie de recyclage}
+
+\end{document}

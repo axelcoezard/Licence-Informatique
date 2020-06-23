@@ -1,0 +1,356 @@
+\documentclass{report}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\title{I21 : Algorithmique}
+\author{Axel Coezard}
+\date{Janvier 2020}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\chapter{Algorithmique}
+
+\setcounter{section}{-1}
+\setcounter{algorithm}{0}
+
+\section{Introduction}
+
+  \paragraph{n.\,b.} L'objet de ce cours est l'étude des algorithmes.
+
+  \paragraph{def.} Un algorithme est une procédure permettant de résoudre un problème en un nombre fini d'étapes.
+
+\section{Problème et instance d'un problème}
+
+  \subsection{}
+
+  \paragraph{def.} Un problème algorithmique est défini par:
+  \begin{itemize}
+    \item son entrée
+    \item sa sortie
+  \end{itemize}
+
+  \paragraph{e.\,g.} Le tri
+  \begin{itemize}
+    \item \underline{entrée}: ensemble de n >=  1 données $a_{1}$, $a_{2}$, ..., $a_{n}$.
+    \item \underline{sortie}:
+  \end{itemize}
+
+  IL est important d'être très précis dans les specifications du problème. Une définition trop vague peut rendre le problème impossible à résoudre.
+
+  \paragraph{e.\,g.} Meilleur chemin
+  \begin{itemize}
+    \item \underline{entrée}: une carte routière et 2 points A et B.
+    \item \underline{sortie}: le meilleur chelin entre A et B.
+  \end{itemize}
+
+  \paragraph{n.\,b.} Ici la notion de meilleur chemin est trop vague. Il peut s'agir du plus court chemin, du plus rapide, du moins cher, etc.
+
+  \paragraph{def.} On appelle instance d'un problème la donnée d'une entrée spécifique du problème. Pour être validé un algo doit résoudre le problème pour n'importe laquelle de ses instance.
+
+  \paragraph{e.\,g.}: Problème de tri
+  \begin{itemize}
+    \item \{235, 104, 15, -7, 0\}
+    \item \{Nicolas, Valérie, JP, Joseph\}
+  \end{itemize}
+
+  \paragraph{n.\,b.} En fonction du type de données on peut avoir différentes opérations acceptables.
+
+\subsection{Description d'un algorithme}
+
+  \paragraph{def.} On utilise 3 types de langages pour écrire un algorithme:
+  \begin{itemize}
+    \item Le langage naturel
+    \item Le pseudocode
+    \item Le langage de programmation
+  \end{itemize}
+
+  \paragraph{e.\,g.} Somme de n premiers nombres
+  \begin{itemize}
+    \item \underline{entrée}: un entier n
+    \item \underline{sortie}: $\sum_{i=1}^n i = 1 + 2 + ... + n$
+  \end{itemize}
+
+\subsection{Pseudocode}
+
+  \paragraph{def.} Il s'agit d'un langage de universel de description algorithmique. Celui-ci ne depend ni d'un langage ni de l'architecture de la machine censé faire tourner le code.
+
+  \paragraph{e.\,g.} Dans ce cas, un algorithme est composé de 3 blocs:
+  \begin{itemize}
+    \item Les données
+    \item Les variables
+    \item Les instructions
+  \end{itemize}
+
+  \paragraph{n.\,b.} Les Mots-Clef: DEBUT, FIN, SI, ALORS, SINON, TQ, FTQ, FAIRE
+
+  \paragraph{n.\,b.} L'affectation se fait avec le symbole $\Leftarrow$
+
+  \paragraph{n.\,b.} Utilise les opérations mathématiques standards.
+
+  \paragraph{n.\,b.} Les tableaux sont de tailles fixes. Ils commencent à l'indice 1. On accède à un élement via [ ].
+
+\subsection{Justesse et terminaison}
+
+  \paragraph{def.}Un algorithme pour être considéré valide doit satisfaire 2 critères et doit:
+  \begin{itemize}
+    \item Être juste / correct.
+    \item Se terminer.
+  \end{itemize}
+
+  \paragraph{n.\,b.} Noter la justesse ou la terminaison d'un algorithme se fait avec une preuve mathématique.
+
+  \paragraph{def.} Les preuves de justesses sont en géneral très dures, et ne sont pas effectuées.
+
+  \paragraph{def.}Les preuves de terminaison sont beaucoup plus simple et permettront de calculer la complexité des algorithme.
+
+  \paragraph{n.\,b.} Ces données doivent permettre de garantir qu'un algorithme se termine quel quelle que soit l'instance du problème.
+
+\subsection{Preuve par récurrence}
+
+  \paragraph{def.} La preuve par récurrence est l'autre preuve principale des preuves d'arrêt. Généralement, elles nous serviront à prouver des formules de la forme:
+  \[
+    \sum_{i=1}^n u_{i} = F(n)
+  \]
+
+  \paragraph{n.\,b.} Le but d'une telle preuve est de prouver la validité d'une propriété P(n) pour tous les entiers supérieur à une borne. Elle se déroule en deux étapes:
+  \begin{itemize}
+    \item L'initialisation.
+    \item L'hérédité.
+  \end{itemize}
+
+\subsection{Invalidation de l'algorithme}
+
+  \paragraph{n.\,b.} Autant il peut être difficile de prouver la justesse d'un algorithme, autant il est très simple de prouver qu'un algorithme est faux.
+
+  \paragraph{i.\,e.} Il suffit de trouver une instance du problème à résoudre pour laquelle l'algorithme renvoie un résultat faux.
+
+  \paragraph{e.\,g.} Ramassage de Plots
+  \begin{itemize}
+    \item \underline{entrée}: n plots sur un terrain
+    \item \underline{sortie}: parcours permettant de ramasser tous les plots et de revenir au départ.
+  \end{itemize}
+
+\chapter{Analyse des algorithmes}
+
+  \setcounter{section}{0}
+  \setcounter{algorithm}{0}
+
+  \section{}
+
+    \paragraph{def.} Analyser un algorithme c'est prévoir la quantité de ressources nécessaire à son exécution. Les ressources peuvent être:
+    \begin{itemize}
+      \item Le temps.
+      \item La mémoire.
+      \item La consommation électrique.
+      \item Le coût financier.
+    \end{itemize}
+
+    \paragraph{n.\,b.} Dans ce cours, nous nous intéressons essentiellement à la dimension temporelle.
+
+    % Faire les algorithmes
+
+    \paragraph{def.} Une analyse hyper détaillée consiste à pondérer à chaque opérations et à compter leur nombre d'occurences (en fonction de n).
+    \begin{itemize}
+      \item $C_{A}$ : côut de l'addition
+      \item $C_{m}$ : côut de la multiplication
+      \item $C_{d}$ : côut de la division
+      \item $C_{f}$ : côut de l'affectation
+      \item $C_{p}$ : côut de la comparaison
+    \end{itemize}
+
+    % Demander cette partie avec le calcul des couts
+
+    \paragraph{n.\,b.} Pour réaliser des analyses qui soient les plus générales possibles, \textbf{i.\,b.} qui ne dépendent pas de l'architecture de la machine cible, on considère un modèle de machine abstraitre : le modèle \textbf{R}\,andom \textbf{A}\,ccess \textbf{M}\,emory
+
+    \paragraph{e.\,g.} Machine hypothétique pour laquelle:
+    \begin{itemize}
+      \item Les opérations simples (+, -, $\times$, $\div$, $\leq$, =, $\Leftarrow$) consommnent une unité de temps.
+      \item Les boucles sont des compositions d'opérations simples, leur coût dépend du nombre d'opération multiplié par le nombre d'itérations.
+      \item Un accès mémoire consomme une unité de temps.
+      \item La quantité de mémoire n'est pas limitée.
+    \end{itemize}
+
+  \section{Analyse asymptotique}
+
+    \paragraph{n.\,b.} A priori, plus une donnée en entrée est grande, plus un algorithme de résolution est lent. Pour étudier l'efficacité d'un algorithme, on considère toujours une donnée à taille fixée.
+
+    \paragraph{n.\,b.} L'analyse asymptotique nous renseigne sur la manière dont évolue le coût de calcul quand la taille des données augmente.
+
+    \paragraph{e.\,g.} Recherche d'un élement dans un tableau:
+    \begin{itemize}
+      \item n cases à tester.
+      \item \underline{5 cases}: 5 cases à tester.
+      \item \underline{10 cases}: 10 cases à tester.
+    \end{itemize}
+
+    \paragraph{n.\,b.} Même à taille fixée, certaines instance peuvent être plus faciles à résoudre que d'autres.
+
+    \paragraph{e.\,g.} Recherche d'un élément:
+    \begin{itemize}
+      \item \underline{Cas facile}: l'élément recherché est le premier élément du tableau (1 tour de boucle).
+      \item \underline{Cas difficile}: l'élément dans la dernière case (m tours de boucles).
+    \end{itemize}
+
+    \paragraph{n.\,b.} On considère du coup 3 types de notations pour évaluer un algorithme:
+    \begin{itemize}
+      \item \underline{T(n)}: le coût de calcul (la complexité générale).
+      \item \underline{$T^{\lor}$(n)}: la complexité en meilleur (facile).
+      \item \underline{$T^{\land}$(n)}: la complexité en pire (difficile).
+    \end{itemize}
+
+    \paragraph{n.\,b.} Dans le \underline{meilleur cas}, l'algorithme effectue un nombre normal d'étapes de calcul pour n'importe quelle instance de taille n. Dans le \underline{pire cas}, l'algorithme en effectue un nombre maximal.
+
+  \section{Notation asymptotique}
+
+    \paragraph{def.} La complexité d'un algorithme est toujours une fonction numérique, elles sont en général difficiles à manipuler.
+    \begin{itemize}
+      \item Trop de as à gérer (il n'existe par une seule formule proche).
+      \item Trop complexe l'écriture fait intervenir de nombreux termers qui n'apportent aucune information.
+    \end{itemize}
+
+    \paragraph{n.\,b.} Pour se simplifier l'analyse, on utilise les notations asymptotiques suivantes: f et g sont des fonctions numériques positives.
+
+    \paragraph{def.} f(n) = \textbf{O} (g(n))
+    \paragraph{i.\,e.} Quand n devient grand, g(n) est toujours plus grand que f(n).
+
+    \paragraph{def.} f(n) = \textbf{$\Omega$} (g(n))
+    \paragraph{i.\,e.} Quand n devient grand, g(n) est toujours plus petit que f(n).
+
+    \paragraph{def.} f(n) = \textbf{$\Theta$} (g(n))
+    \paragraph{i.\,e.} Quand n devient grand, g(n) croit aussi rapidement que f(n).
+
+    \paragraph{prop.} On dispose des règles de calcul suivantes:
+    \begin{itemize}
+      \item f(n) + g(n) = \textbf{O} (max(f(n),g(n)))
+      \item c $\times$ f(n) = \textbf{O} (f(n))
+      \item f(n) $\times$ g(n) = \textbf{O} (f(n) $\times$ g(n))
+    \end{itemize}
+    \paragraph{n.\,b.} Valable également pour $\Omega$ et $\Theta$.
+
+    \paragraph{n.\,b.} Lorsqu'une analyse asymptotique fourni une complexité dans le pire cas différente de celle dans le meilleur cas, la complexité générale est en grand \textbf{O} du pire cas.
+
+   \section{Familles de complexité}
+
+    \paragraph{n.\,b.} Dans la suite de ce cours, toutes les fonctions considérés sont positives et croissantes. Dans ce cadre, pour évaluer le rapport entre les comportements asymptotiques de 2 fonctions $f$ et $g$ il suffit d'étudier: $\lim\limits_{n \rightarrow +\infty} \frac{f(n)}{g(n)}$
+
+    \begin{itemize}
+      \item Si l = $+\infty$, alors on a f(n) = $\Omega$ (g(n)).
+      \item Si l = 0, on a g(n) = $\Omega$ (f(n)).
+      \item Si l $\in \mathbf{R}^{*}_{+}$, on a f(n) = $\Theta$ (g(n)).
+    \end{itemize}
+
+    \subsection{Logarithmique}
+
+      \paragraph{def.} Le Logarithme s'écrit log(n).
+
+      \paragraph{def.} Le Logarithme de base a s'écrit $log_{a}(n) = \frac{ln(n)}{ln(a)}$.
+
+      \paragraph{n.\,b.} En particulier, $log_{2}$ est le plus utilisé en information et on le note parfois log ou lg.
+
+      \paragraph{n.\,b.} $b^{log_{b}(a)} = a$ et $2^{log_{2}(n)} = n$
+
+      \paragraph{def.} $log_{a}(b \times c) = log_{a}(b) + log_{a}(c)$
+
+    \subsection{Polynomiale}
+
+      \paragraph{def.} Tout polynome s'écrit $f(n) = a_{k}u^{k} + a_{k-1}u^{k-1} + ... + a_{i}u^{i} + a_{0}u^{0}$
+
+      \paragraph{n.\,b.} Propriétés
+      \begin{itemize}
+        \item f(n) = $\Theta$ ($u^{k}$).
+        \item k = 1, on parle de complexité linéaire.
+        \item k = 2, on parle de complexité quadratique.
+      \end{itemize}
+
+      \paragraph{n.\,b.} On peut étendre la famille aux puissances réelles: $u\sqrt{u} = u^{1.5}$.
+
+    \subsection{Exponentielle}
+
+\chapter{Bases d'algorithmique}
+
+  \setcounter{section}{0}
+  \setcounter{algorithm}{0}
+
+  \paragraph{n.\,b.} Dans la pratique, écrire un algo de résolution d'un problème donné revient à parcourir les données du problème dans un certain ordre. Dans ce cours, nous allons nous intéresser essentiellement au parcours de tableaux en 1 et 2 dimensions. Ces algorithmes de parcours sont un peu l'équivalent des gammes en musique.
+
+  \section{Parcours d'un tableau de dimension 1}
+
+    \subsection{Parcours alterné}
+
+      \paragraph{def.} Le parcours alterné conciste à afficher le premier élement puis le dernier, le deuxième puis l'avant dernier, etc. Cet algorithme est par exemple utilisé pour résoudre le problème de détection des palimdromes.
+
+      \paragraph{e.\,g.} Soit le tableau $T = [1, 2, 3, 4, 5]$, l'agorithme affiche: 1 5 2 4 3
+
+      \paragraph{algo.}
+
+      \paragraph{n.\,b.} La boucle dépend des variables i et j. i est initialisé à 1 et modifier à l'instruction $i \Leftarrow i + 1$. j est initialisé à n et modifier à l'instruction $j \Leftarrow j - 1$. Les valeurs de i sont celles de la suite: $u_{0}=1, u_{r-1}=u_{r} + 1$. i.e. $u_{r}=r+1$. Les valeurs de j sont celles de la suite: $v_{0}=n, v_{r+1}=v_{r} - 1$. i.e. $v_{r}=n-r$. La condition d'arrêt de la boucle ($i \gneqq j$) est satisfaite quand $u_{r} \gneqq u_{r}$.
+
+      \paragraph{n.\,b.} On en déduit que le nombre de tour de boucle est $\frac{n-1}{2} + 1$. Toutes les opérations à l'interieur sont de complexité $\Theta$(1). Donc $C(n) = \sum_{r=1}^{\frac{n-1}{2} + 1} \Theta(1) = \Theta(n)$.
+
+    \subsection{Parcours d'un tableau circulaire}
+
+      \paragraph{algo.}
+
+      \paragraph{n.\,b.} Ici, un tableau circulaire est une représentation d'un ensemble de données sans début ni fin.
+
+      \paragraph{n.\,b.} Pour résoudre le problème il faut être en mesure d'effectuer un parcours décalé circulaire du tableau.
+
+      \paragraph{algo.}
+
+      \paragraph{n.\,b.} Géneralement, un opérateur permettant de simplifier à la fois la conception et l'écriture des algorithmes de parcours de tableaux est le modulo : $\%$ ou $mod$.
+
+      \paragraph{algo.}
+
+      \paragraph{n.\,b.} Pour résoudre le problème initial on peut appliquer deux stratégies:
+      \begin{itemize}
+        \item Recherche l'indice du plus petit élément, puis faire un parcours circulaire du tableau à partir de cet indice et vérifier que tous les élements sont ordonnés.
+        \item Un tableau circulaire est ordonnée si au plus une paire d'élements contigus sont mal ordonnés. La stratégie consiste alors à compter le nombre de ces paires.
+      \end{itemize}
+
+      \paragraph{algo.}
+
+  \section{Parcours de tableau à 2 dimensions}
+
+    \paragraph{def.} Formellement, un tableau à 2 dimensions est ce qu'on appelle une matrice. En algorithmique on représente cette structure par un tableau de tableau. Chaque sous-tableau représente une ligne.
+
+    \subsection{Parcours en ligne}
+
+    A FAIRE
+
+    \subsection{Parcours en colonne}
+
+    \paragraph{n.\,b.} On reprend l'algorithme de parcours en ligne et on inverse la boucle de i et de j.
+
+    \subsection{Parcours en serpentin}
+
+    \paragraph{n.\,b.} On applique le même algorithme que pour les lignes, mais à chaque lecture de colone, on incrémente ou décrémente en fonction de la parité de la ligne.
+
+    \subsection{Parcous en diagonale}
+
+    A FAIRE
+
+    \subsection{Vérification triangulaire sup}
+
+    A FAIRE
+
+  \section{Algorithmes de tri}
+
+    \paragraph{def.} Il s'agit du problème le plus étudié en informatique. Il consiste à réorganiser des données en vue de faciliter leur traitement.
+
+    \paragraph{e.\,g.} On concidère un tableau de taille n contenant des entiers: quel est le nombre qui apparait le plus ?
+
+    \subsection{Idée naïve}
+
+    \paragraph{n.\,b.} Pour chaque élément du tableau on compte son nombre d'occurences.
+
+\end{document}

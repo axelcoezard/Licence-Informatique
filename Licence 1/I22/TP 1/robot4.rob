@@ -1,0 +1,12 @@
+obj0 reacteur 1 11 1 67 obj15 0 0 0 -1 -1 505 265 est
+obj1 reacteur 1 13 1 59 obj13 0 0 0 -1 -1 45 265 ouest
+obj2 reacteur 1 15 1 63 obj14 0 0 0 -1 -1 285 140 nord
+obj3 reacteur 1 17 1 38 obj8 0 0 0 -1 -1 285 140 sud
+obj4 radar 0 0 0 -1 -1 1 19 0 56 obj13 440 310 est
+obj5 radar 0 0 0 -1 -1 1 23 0 64 obj15 110 220 ouest
+obj6 radar 0 0 0 -1 -1 1 27 0 35 obj8 320 190 nord
+obj7 radar 0 0 0 -1 -1 1 31 0 60 obj14 230 330 sud
+obj8 not 1 35 0 27 obj6 1 38 1 17 obj3 326 212 sud
+obj13 not 1 56 0 19 obj4 1 59 1 13 obj1 401 311 sud
+obj14 not 1 60 0 31 obj7 1 63 1 15 obj2 235 302 sud
+obj15 not 1 64 0 23 obj5 1 67 1 11 obj0 129 221 sud
