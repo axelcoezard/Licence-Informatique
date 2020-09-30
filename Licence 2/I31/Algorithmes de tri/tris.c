@@ -7,7 +7,7 @@ void tri_fusion(int *tab, int n);
 int main()
 {
     int tab[] = {1, 5, 8, 3, 9, 7};
-    tri_selection(tab, 6);
+    tri_insertion(tab, 6);
     for (int i = 0; i < 6; i++)
         printf("%d\n", tab[i]);
 }
@@ -31,5 +31,21 @@ void tri_selection(int *tab, int n)
         tmp = tab[i_petit];
         tab[i_petit] = tab[i];
         tab[i] = tmp;
+    }
+}
+
+void tri_insertion(int *tab, int n)
+{
+    int i, j, tmp;
+    for (i = 0; i < n; i++)
+    {
+        j = i;
+        while (j > 0 && tab[j] < tab[j - 1])
+        {
+            tmp = tab[j - 1];
+            tab[j - 1] = tab[j];
+            tab[j] = tmp;
+            j--;
+        }
     }
 }
