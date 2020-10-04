@@ -2,8 +2,12 @@
 
 #define TYPE int
 
+void fonction(TYPE n);
+
 int main()
 {
+	int a = 5;
+	fonction(a);
 }
 
 void fonction(TYPE n)
