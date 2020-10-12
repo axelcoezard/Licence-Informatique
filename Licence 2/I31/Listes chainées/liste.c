@@ -26,3 +26,16 @@ void add_liste(Maillon **tete, int valeur)
 	nouveau->suivant = *tete;
 	*tete = nouveau;
 }
+
+int recherche(Maillon *t, int valeur)
+{
+	Maillon *ptr;
+	ptr = t;
+	while (ptr != NULL)
+	{
+		if (ptr->valeur = valeur)
+			return 1;
+		ptr = ptr->suivant;
+	}
+	return 0;
+}
