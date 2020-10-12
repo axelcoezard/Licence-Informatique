@@ -8,6 +8,7 @@ typedef struct
 
 int liste_vide(Maillon *tete);
 void add_liste(Maillon **tete, int valeur);
+int recherche(Maillon *tete, int valeur);
 
 int main()
 {
@@ -27,10 +28,10 @@ void add_liste(Maillon **tete, int valeur)
 	*tete = nouveau;
 }
 
-int recherche(Maillon *t, int valeur)
+int recherche(Maillon *tete, int valeur)
 {
 	Maillon *ptr;
-	ptr = t;
+	ptr = tete;
 	while (ptr != NULL)
 	{
 		if (ptr->valeur = valeur)
