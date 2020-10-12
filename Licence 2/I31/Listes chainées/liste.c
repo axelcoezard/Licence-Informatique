@@ -40,3 +40,25 @@ int recherche(Maillon *tete, int valeur)
 	}
 	return 0;
 }
+
+void supprime(Maillon **l, int valeur)
+{
+	Maillon *ptr, *prec = NULL;
+	ptr = *l;
+	if (ptr != NULL)
+	{
+		while (ptr != NULL && ptr->valeur != valeur)
+		{
+			prec = ptr;
+			ptr = ptr->suivant;
+		}
+		if (ptr != NULL)
+		{
+			if (prec == NULL)
+				*l = ptr->suivant;
+			else
+				prec->suivant = ptr->suivant;
+		}
+		free(ptr);
+	}
+}
