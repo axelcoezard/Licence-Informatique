@@ -1,0 +1,33 @@
+DROP TABLE IF EXISTS emplacement CASCADE;
+DROP TABLE IF EXISTS sport CASCADE;
+DROP TABLE IF EXISTS sejour CASCADE;
+DROP TABLE IF EXISTS location CASCADE;
+
+CREATE TABLE emplacement (
+  numE INT PRIMARY KEY NOT NULL,
+  surface INT NOT NULL,
+  nbPersMax INT NOT NULL,
+  typeEmpl VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE sport (
+  nomS VARCHAR(100) PRIMARY KEY NOT NULL,
+  Tarif VARCHAR(100) NOT NULL,
+  Valeur INT NOT NULL,
+  Unite VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE sejour (
+  num INT PRIMARY KEY NOT NULL,
+  nomClient VARCHAR(100) NOT NULL,
+  DebSejour VARCHAR(100) NOT NULL,
+  FinSejour VARCHAR(100) NOT NULL,
+  nbPers INT NOT NULL,
+  numE INT REFERENCES emplacement(numE)
+);
+
+CREATE TABLE location (
+  num INT REFERENCES sejour(num),
+  nomS VARCHAR(100) REFERENCES sport(nomS),
+  nbreUnites INT NOT NULL
+);
