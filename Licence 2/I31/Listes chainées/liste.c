@@ -62,3 +62,19 @@ void supprime(Maillon **l, int valeur)
 		free(ptr);
 	}
 }
+
+void inserer_queue(Maillon **tete, int valeur)
+{
+	Maillon *ptr = *tete, *new;
+	new = (Maillon *)malloc(sizeof(Maillon));
+	new->valeur = valeur;
+	new->suivant = NULL;
+	if (ptr == NULL)
+		*tete = new;
+	else
+	{
+		while (ptr->suivant != NULL)
+			ptr = ptr->suivant;
+		ptr->suivant = new;
+	}
+}
