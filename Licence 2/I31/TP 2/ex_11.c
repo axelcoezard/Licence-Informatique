@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <bib_premier.h>
 
 int main()
 {
