@@ -14,7 +14,11 @@ int main()
 
 int reste(int x, int y)
 {
-	/*
-		CALCULER LE RESTE DE LA DIVISION DE X PAR Y.
-	*/
+	int toSub = x, count = 0;
+	while (toSub >= y)
+	{
+		toSub -= y;
+		count++;
+	}
+	return toSub;
 }
