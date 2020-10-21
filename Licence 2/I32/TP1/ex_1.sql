@@ -1,10 +1,10 @@
 CREATE DOMAIN DOM_SEXE AS CHARACTER(1) CHECK (VALUE IN (`F`, `M`));
 
-DROP TABLE IF EXISTS cours;
-DROP TABLE IF EXISTS intervenant;
-DROP TABLE IF EXISTS participant;
-DROP TABLE IF EXISTS inscription;
-DROP TABLE IF EXISTS atelier;
+DROP TABLE IF EXISTS cours CASCADE;
+DROP TABLE IF EXISTS intervenant CASCADE;
+DROP TABLE IF EXISTS participant CASCADE;
+DROP TABLE IF EXISTS inscription CASCADE;
+DROP TABLE IF EXISTS atelier CASCADE;
 
 CREATE TABLE cours (
   id_cours INT PRIMARY KEY NOT NULL,
@@ -58,7 +58,7 @@ INSERT INTO inscription VALUES
 
 CREATE TABLE atelier (
   id_cours INT PRIMARY KEY REFERENCES cours(id_cours),
-  id_intervenant PRIMARY KEY INT REFERENCES intervenant(id_intervenant)
+  id_intervenant INT PRIMARY KEY REFERENCES intervenant(id_intervenant)
 );
 
 INSERT INTO atelier VALUES
