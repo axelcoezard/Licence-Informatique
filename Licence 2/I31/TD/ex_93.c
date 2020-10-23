@@ -17,5 +17,5 @@ int est_premier(int n)
 
 int jumeaux(int a, int b)
 {
-	return est_premier(a) && est_premier(b) && a == b + 2;
+	return est_premier(a) && est_premier(b) && (a == b + 2 || b == a + 2);
 }
