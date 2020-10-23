@@ -5,7 +5,7 @@ int estParfait(int x);
 
 int main()
 {
-	int n, i = 0, count = 0;
+	int n, i = 1, count = 0;
 	printf("Entrer un nombre n: ");
 	scanf("%d", &n);
 
@@ -28,7 +28,7 @@ int estDivisiblePar(int x, int y)
 int estParfait(int x)
 {
 	int somme = 0;
-	for (int i = 1; i <= x; i++)
+	for (int i = 1; i < x; i++)
 	{
 		if (estDivisiblePar(x, i))
 			somme += i;
