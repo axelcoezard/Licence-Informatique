@@ -1,15 +1,17 @@
 def tri(L):
-	i = 0
-	while (i < len(L)):
-		min = L[i]
-		j = i
-		while j < len(L):
-			if L[j] < min:
-				min = L[j]
-			j += 1
-		j -= 1
-		L[i], L[j] = L[j], L[i]
-		i += 1
+	pointer = 0
+	while pointer < len(L):
+		minimum = L[pointer]
+		minimum_i = pointer
+
+		index = pointer
+		while index < len(L):
+			if (L[index] < minimum):
+				minimum = L[index]
+				minimum_i = index
+			index += 1
+		L[pointer], L[minimum_i] = minimum, L[pointer]
+		pointer += 1
 	return L
 
-print(tri([5, 6, 8,9, 7, -1, 3]))
+print(tri([8, -1, 2, 5, 3, -2]))
