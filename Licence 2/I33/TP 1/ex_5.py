@@ -1,5 +1,5 @@
 def minimum_posi(L): 
-	M = []
+	M = [0]
 	minimum = L[0]
 	i = 1
 	while i < len(L):
