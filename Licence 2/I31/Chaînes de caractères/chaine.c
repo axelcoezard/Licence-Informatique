@@ -21,7 +21,7 @@ void modif(char *chaine)
 int cherche_str(char *c, char *k)
 {
 	int ic, ik;
-	int lc = len(c), lk = len(k);
+	int lc = strlen(c), lk = strlen(k);
 	for (ic = 0; ic < lc - lk; ic++)
 	{
 		ik = 0;
