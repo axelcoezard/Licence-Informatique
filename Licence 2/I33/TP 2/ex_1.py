@@ -1,6 +1,6 @@
 def pgcd(a, b):
-	if b > 0:
-		return pgcd(b, a % b)
+	while b > 0:
+		a, b = b, a % b
 	return a
 
 print(pgcd(5, 0))
