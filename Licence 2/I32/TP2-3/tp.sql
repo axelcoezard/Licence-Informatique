@@ -111,3 +111,53 @@ NATURAL JOIN intervenant
 WHERE nom = 'Amandine';
 
 -- 20
+SELECT cours.id_cours, count(id_participant)
+FROM intervenant
+NATURAL JOIN atelier
+NATURAL JOIN cours, inscription
+WHERE nom = 'Amandine'
+AND atelier.id_cours = inscription.id_cours
+GROUP BY cours.id_cours;
+
+-- 21
+SELECT id_cours, danse
+FROM cours
+NATURAL JOIN inscription
+NATURAL JOIN participant
+WHERE nom in ('Melanie', 'Henri')
+GROUP BY id_cours
+HAVING count(id_cours) = 2;
+
+-- 22
+SELECT p.id_participant, p.nom
+FROM participant p, intervenant j, inscription i, atelier a
+WHERE p.id_participant = i.id_participant
+AND i.id_cours = a.id_cours
+AND j.id_intervenant = a.id_intervenant
+AND j.nom = 'Denis';
+
+-- 23
+SELECT count(*)
+FROM participant p, intervenant j, inscription i, atelier a
+WHERE p.id_participant = i.id_participant
+AND i.id_cours = a.id_cours
+AND j.id_intervenant = a.id_intervenant
+AND j.nom IN ('Amandine', 'Denis');
+
+-- 24
+SELECT id_cours, danse
+FROM cours c
+GROUP BY id_cours
+HAVING (
+  SELECT count(p.sexe)
+  FROM inscription i, participant p
+  WHERE c.id_cours = i.id_cours
+  AND i.id_participant = p.id_participant
+  AND p.sexe = 'M'
+) > ALL (
+  SELECT count(p.sexe)
+  FROM inscription i, participant p
+  WHERE c.id_cours = i.id_cours
+  AND i.id_participant = p.id_participant
+  AND p.sexe = 'F'
+);
