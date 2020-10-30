@@ -7,7 +7,7 @@ int main()
 
 	int x;
 	printf("Entrer un x: ");
-	scanf("%d\n", &x);
+	scanf("%d", &x);
 
 	for (int i = 0; i < N; i++)
 		if (A[i] == x)
