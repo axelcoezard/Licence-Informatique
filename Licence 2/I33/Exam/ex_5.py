@@ -7,3 +7,6 @@ def decompose(n):
         else:
             i += 1
     return list(D.values())
+
+
+print(decompose(99999876400))
