@@ -1,0 +1,33 @@
+LOAD #10  ;
+STORE 1  ; Prépare l'incrément
+READ     ; Charge la nouvelle valeur
+JUML 7  ; Si nouvelle valeur < 0, fin **A CHANGER**
+INC 1    ; Incrémente
+STORE @1 ; Stock la nouvelle valeur en @incrément
+JUMP 2   ; Recommence
+LOAD #11  ; Met 10 dans l'ACC
+STORE 2  ; Set le pointeur à 10
+STORE 3  ; Set l'index à 10
+LOAD @2  ; CHarge la première valeur
+STORE 4  ; Stocke la plus grande valeur en 4
+LOAD 4   ; CHarge la plus grand valeur depuis 4
+INC 3    ; Incrémente
+SUB @3   ; Charge la valeur à l'index @2 et la soustrait à ACC
+JUMG 20  ; si ACC > 0, nouvelle < ancienne
+LOAD 3   ; Charge l'incrément
+SUB 1    ;
+JUMZ 22  ; si ACC == 0, on a fini cette boucle
+LOAD 3   ;
+STORE 5  ; Stocke l'index de la plus petite
+LOAD @3  ; MEt la plus petite dans l'ACC
+JUMP 11  ;
+LOAD @2  ;
+STORE 6  ; Stocke l'ancien en position pointeur en tmp
+LOAD @5  ;
+STORE 2  ;
+LOAD 6   ;
+STORE @5 ;
+INC 2    ;
+LOAD 2   ;
+JUMP 9   ;
+STOP     ;
