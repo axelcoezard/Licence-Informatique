@@ -1,0 +1,19 @@
+LOAD #1  ; Met 1 dans l'ACC
+STORE 1  ; Ajoute 1 dans la RAM.
+READ     ; Lit l'entrée et l'ajoute à l'ACC
+JUMZ 12  ; si ACC = 0 (si l'entrée = 0), fin
+INC 2    ; Ajoute 1 à l'incrément
+SUB #1   ; Soustrait 1 à l'ACC (l'entrée)
+STORE 3  ; Stock l'entrée-1 dans la RAM
+LOAD 1   ; Charge la factorielle
+MUL 2    ; La multiplie à l'incrément 1x2x3x4x5
+STORE 1  ; Stock la factorielle
+LOAD 3   ; Recharge l'entrée-1
+JUMP 3   ; Recommence
+LOAD 1   ; Charge la factorielle
+WRITE    ; L'affiche
+STOP     ; Termine le programme
+
+
+
+

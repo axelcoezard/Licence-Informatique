@@ -1,0 +1,15 @@
+READ    ; Prend la première valeur
+STORE 1 ; La stock en 1
+READ    ; Prend la nouvelle valeur
+INC 3   ; Incremente l'index
+JUMZ 11 ; si ACC = 0, stop
+STORE 2 ; Stocke la nouvelle valeur
+SUB 1   ; Soustrait l'ancienne à la nouvelle
+JUML 9  ; si ACC < 0, ancienne > nouvelle
+JUMP 2  ; REcommence 
+LOAD 2  ; Charge la nouvelle valeur
+STORE 1 ; et la défini comme le minimum
+LOAD 1  ; Charge le minimum
+WRITE   ; Affiche le minimum
+STOP    ; Termine le programme
+

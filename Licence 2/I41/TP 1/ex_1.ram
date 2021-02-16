@@ -1,0 +1,9 @@
+READ    ; lit le contenu de la bande d'entrée
+JUMZ 6  ; si ACC = 0, on fini le programme
+ADD 9   ; Ajoute le contenu déjà additionner dans l'Acc
+STORE 9 ; Stock l'addition 
+INC 10  ; Incrémente le nombre d'additions
+JUMP 0  ; Retourne au début
+ADD 10  ; Ajouter l'incrément dans l'ACC
+WRITE   ; Affiche l'ACC
+STOP    ; Termine le programme
