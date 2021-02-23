@@ -1,0 +1,1 @@
+gcc -w ex_1.c && ./a.out
