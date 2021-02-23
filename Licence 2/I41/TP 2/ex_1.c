@@ -3,16 +3,16 @@
 
 #include "ex_1.h"
 
-void main() {
-    unsigned char n = 3;
-    unsigned char b = 10;
+int main() {
     uint A[3] = {9, 9, 9};
+    uint i = Increment(A, 3, 10);
 
-    uint i = Increment(A, n, b);
+    unsigned char n = 8;
+    unsigned char b = 10;
+    uint modifs = test(n, b);
 
-    uint total = test(3, 10);
-
-    printf("%i\n", i);
+    printf("Incrément: %i\n", i);
+    printf("Modifs totales: %i\n", modifs);
 }
 
 /**
@@ -23,18 +23,12 @@ void main() {
  * \return Le nombre de chiffres modifiés pour incrémenter de 1.
  */
 uint Increment(uint * A, unsigned char n, unsigned char b) {
-    uint retenu = 1; // Toujours égale à 0 ou 1.
-    uint i = 0;      // Compteur de modifications.
-    do {
-        if(A[i] + retenu >= b) {
-            A[i] = 0;
-            retenu =  1;
-        } else {
-            A[i] += retenu;
-            retenu = 0;
-        }
+    uint i = 0, modifs = 0;
+    while(i < n && A[i] == b - 1) {
+        A[i] = 0;
         i++;
-    } while (i < n && retenu > 0);
+    }
+    if(i < n) A[i]++;
     return i;
 }
 
@@ -53,8 +47,10 @@ uint test(unsigned char n, unsigned char b) {
     }
 
     uint modifications = 0;
-    for(int i = 0; i < possibilities; i++)
+    for(int i = 0; i < possibilities; i++) 
         modifications += Increment(A, n, b);
 
-    printf("%i\n", modifications);
+    free(A);
+
+    return modifications;
 }
