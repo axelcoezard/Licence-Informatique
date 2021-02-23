@@ -4,11 +4,13 @@
 #include "ex_1.h"
 
 void main() {
-    unsigned char b = 10;
     unsigned char n = 3;
-    uint A[3] = {9, 2, 3};
+    unsigned char b = 10;
+    uint A[3] = {9, 9, 9};
 
     uint i = Increment(A, n, b);
+
+    uint total = test(3, 10);
 
     printf("%i\n", i);
 }
@@ -43,5 +45,16 @@ uint Increment(uint * A, unsigned char n, unsigned char b) {
  * \return Nombre total de modifications pour toutes les listes.
  */
 uint test(unsigned char n, unsigned char b) {
+    uint * A = malloc(sizeof(uint) * n);
+    uint possibilities = 1;
+    for(int i = 0; i < n; i++) {
+        possibilities *= b;
+        A[i] = 0;
+    }
 
+    uint modifications = 0;
+    for(int i = 0; i < possibilities; i++)
+        modifications += Increment(A, n, b);
+
+    printf("%i\n", modifications);
 }
