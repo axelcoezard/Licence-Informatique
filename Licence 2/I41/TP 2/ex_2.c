@@ -59,9 +59,7 @@ tbool BienParenthesee(char * expr) {
     for(uint i = 0; i < taille_expr; i++) {
         if(expr[i] == '(') count++;
         if(expr[i] == ')') count--;
-
-        if(count < 0) break;
+        if(count < 0) return FALSE;
     }
-
-    return count == 0 ? TRUE : FALSE;
+    return TRUE;
 }
