@@ -1,1 +1,1 @@
-gcc -g -Wall ex_7.c && ./a.out
+gcc -g -Wall ex_8.c && ./a.out
