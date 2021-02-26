@@ -1,0 +1,1 @@
+gcc -g -Wall ex_7.c && ./a.out
