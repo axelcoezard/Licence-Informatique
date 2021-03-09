@@ -23,10 +23,10 @@ int main() {
     system("gnuplot -persist -e \"plot './mongraphe.txt' with lines linewidth 1.5\"");
 
     // Test de calcul du temps de vol et de l'altitude maximum
-    // de la suite de Syracuse pour u0=4.563.280.
+    // de la suite de Syracuse pour u0=4.563.281.
     int temps;
     int altitude;
-    analyse(4563280, &temps, &altitude);
+    analyse(4563281, &temps, &altitude);
     printf("Altitude max: %d\n", altitude);
     printf("Temps de vol: %d\n", temps);
 }
