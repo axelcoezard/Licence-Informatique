@@ -12,10 +12,14 @@ int main() {
     printf("axel est un palindrome: %s\n", result2 ? "Oui" : "Non");
 }
 
+/**
+ * \brief Determine si phrase est un palimdrome.
+ * \return TRUE ou FALSE de type tbool.
+ */
 tbool EstPalindrome(char *phrase) {
     int taille = strlen(phrase);
     int i = 0;
-    while(i < taille) {
+    while(i < taille / 2) {
         if(phrase[i] != phrase[taille - i - 1]) 
             return FALSE;
         i++;

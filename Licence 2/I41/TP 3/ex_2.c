@@ -12,6 +12,7 @@ int main() {
     }
 }
 
+
 void TriSelection(int *liste, ushort n) {
     int ptr = 0;
     while (ptr < n) {

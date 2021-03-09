@@ -4,8 +4,31 @@
 #include "ex_3.h"
 
 int main() {
-    uint n = syracuse(14);
-    printf("Le plus petit n pour que u = 1: %i\n", n);
+    // Calcul de la coubre des temps de vol de la suite
+    // de Syracuse pour une précision choisie par
+    // l'utilisateur.
+    int precision;
+    printf("Entrez la précision de vol: \n");
+    scanf(" %d", &precision);
+
+    FILE *file = fopen("./mongraphe.txt", "w+"); 
+    if (file != NULL)
+    {
+        for(int i = 1; i <= precision; i++) {
+            uint min_n = syracuse(i);
+            fprintf(file, "%i %i\n", i, min_n);
+        }
+    }
+    fclose(file);
+    system("gnuplot -persist -e \"plot './mongraphe.txt' with lines linewidth 1.5\"");
+
+    // Test de calcul du temps de vol et de l'altitude maximum
+    // de la suite de Syracuse pour u0=4.563.280.
+    int temps;
+    int altitude;
+    analyse(4563280, &temps, &altitude);
+    printf("Altitude max: %d\n", altitude);
+    printf("Temps de vol: %d\n", temps);
 }
 
 /**
@@ -24,7 +47,24 @@ uint PairOuImpair(uint n) {
  * \return Renvoie le plus petit n pour que u_n = 1.
  */
 uint syracuse(uint u0) {
-    int u = u0, n = 0;
-    while((u = PairOuImpair(u)) != 1) n++;
+    int n = 0;
+    while((u0 = PairOuImpair(u0)) != 1) n++;
     return n + 1;    
+}
+
+/**
+ * \brief Détermine l'altitude maximum et le temps de vol
+ de la sutie de Syracuse pour un u0 donné.
+ * \param u0 Un entier non-signé, premier terme de la suite.
+ * \param temps Un pointeur sur entier, correspondant au temps de vol.
+ * \param altitude Un pointeur sur entier, correspondant a l'altitude max.
+ */
+void analyse(uint u0, int *temps, int *altitude) {
+    *temps = 1;
+    *altitude = u0;
+    while((u0 = PairOuImpair(u0)) != 1) {
+        if(u0 > *altitude) 
+            *altitude = u0;
+        (*temps)++;
+    }
 }
