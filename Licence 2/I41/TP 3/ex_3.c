@@ -25,7 +25,6 @@ uint PairOuImpair(uint n) {
  */
 uint syracuse(uint u0) {
     int u = u0, n = 0;
-    while((u = PairOuImpair(u)) != 1)
-        n++;
+    while((u = PairOuImpair(u)) != 1) n++;
     return n + 1;    
 }

@@ -16,15 +16,18 @@ void TriSelection(int *liste, ushort n) {
     int ptr = 0;
     while (ptr < n) {
         int min = liste[ptr];
+        int min_i = ptr;
         int i = ptr;
         while(i < n) {
-            if(liste[i] < min) 
+            if(liste[i] < min) {
                 min = liste[i];
+                min_i = i;
+            }
             i++;
         }
         int tmp = liste[ptr];
-        liste[ptr] = liste[i];
-        liste[i] = tmp;
+        liste[ptr] = min;
+        liste[min_i] = tmp;
         ptr++;
     }
 }
