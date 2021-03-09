@@ -13,7 +13,3 @@ JUMP 3   ; Recommence
 LOAD 1   ; Charge la factorielle
 WRITE    ; L'affiche
 STOP     ; Termine le programme
-
-
-
-

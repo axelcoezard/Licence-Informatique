@@ -12,4 +12,3 @@ STORE 1 ; et la défini comme le minimum
 LOAD 1  ; Charge le minimum
 WRITE   ; Affiche le minimum
 STOP    ; Termine le programme
-
