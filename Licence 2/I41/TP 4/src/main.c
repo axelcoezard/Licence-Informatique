@@ -16,6 +16,8 @@ int main () {
     float R_1 = Eval_Naif(poly, 3);
     float R_2 = Eval_SM(poly, 3);
     float R_3 = Eval_Horner(poly, 3);
+
+    printf("%f %f %f\n", R_1, R_2, R_3);
 }
 
 float *Creer_Poly(uint n) {

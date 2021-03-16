@@ -14,8 +14,11 @@
 float Eval_Naif(float *P, float a) {
     float R = P[0];
     int i = 1;
-    while(i <= sizeof(P)) {
-        R += P[i] * Exp(a, i); // R ← R + P[i] * Exp(x,i)
+    int n = sizeof(P) - 2;
+    printf("%f\n", n);
+    while(i <= n) {
+        // R ← R + P[i] * Exp(x,i)
+        R += P[i] * Exp(a, i);
         i++;
     }
     return R;
@@ -24,7 +27,8 @@ float Eval_Naif(float *P, float a) {
 float Eval_SM(float *P, float a) {
     float R = P[0];
     int i = 1;
-    while(i <= sizeof(P)) {
+    int n = sizeof(P) - 2;
+    while(i <= n) {
         R += P[i] * SquareMultiply(a, i); // R ← R + P[i] * Exp(x,i)
         i++;
     }
@@ -34,8 +38,7 @@ float Eval_SM(float *P, float a) {
 float Eval_Horner(float *P, float a) {
     float R = 0;
     int i = 0;
-    int n = 10;
-    // C'est quoi n ?
+    int n = sizeof(P) - 2;
     while (i <= n) {
         R = R * a + P[n - 1];
         i++;
