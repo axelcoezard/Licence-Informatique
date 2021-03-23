@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ex_1.h";
+#include "ex_1.h"
 
 int main() {
     ullong R = Factorielle(20);
@@ -14,7 +14,7 @@ int main() {
  */
 ullong Factorielle(uchar n) {
     ullong i = 1;
-    while (n > 0) {
+    while (n > 1) {
         i *= n;
         n--;
     }
