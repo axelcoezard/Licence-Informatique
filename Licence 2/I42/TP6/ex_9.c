@@ -45,7 +45,6 @@ int main() {
         // Ajout de la valeur à la somme
         somme += atoi(message);
         close(tube[0]);
-
         i++;
     }
 
