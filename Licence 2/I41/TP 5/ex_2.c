@@ -23,7 +23,7 @@ uint *S2L(char *chaine) {
     uint *inverse = malloc(size * sizeof(int));
     uint i = 0;
     while (i < size) {
-        inverse[size - i - 1] = chaine[i] - '0';
+        inverse[size - i - 1] = chaine[i];
         i++;
     }
     return inverse;
