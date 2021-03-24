@@ -28,7 +28,7 @@ int main() {
             uint value = V1[i] * V2[i];
             // Converti le value en chaine de caractère.
             char message[10] = "";
-            sprintf(message, "%d", value);
+            sprintf(message, "%d", value);z
             // Ecriture dans la value dans le pipe
             write(tube[1], message, 10);
             close(tube[0]);
