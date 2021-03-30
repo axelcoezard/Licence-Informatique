@@ -8,24 +8,21 @@ int main(int argc, char **argv)
 {
     int L_size = atoi(argv[1]);
 
-    // Test du tri Sélection
-    int *L_1 = generate_list(L_size, 100);
-    show_list(L_1, L_size);
-    TriSelection(L_1, L_size);
-    show_list(L_1, L_size);
-    // Test du tri à Bulles
-    int *L_2 = generate_list(L_size, 100);
-    show_list(L_2, L_size);
-    TriBulles(L_2, L_size);
-    show_list(L_2, L_size);
-    // Test du tri Insertion
-    int *L_3 = generate_list(L_size, 100);
-    show_list(L_3, L_size);
-    TriInsertion(L_3, L_size);
-    show_list(L_3, L_size);
+    int start = time(NULL);
+    int countdown;
+    ullong K_1 = 0, K_2 = 0, K_3 = 0;
+    while ((countdown = time(NULL) - start) < 60)
+    {
+        int *perms_1 = generate_perms(L_size);
+        int *perms_2 = perms_1;
+        int *perms_3 = perms_1;
 
-    int *perms = generate_perms(L_size);
-    show_list(perms, L_size);
+        K_1 += TriSelection(perms_1, L_size - 1);
+        K_2 += TriBulles(perms_2, L_size);
+        K_3 += TriInsertion(perms_3, L_size);
+    }
+
+    printf("Nombres de permutations triées en 60s: %lld %lld %lld\n", K_1, K_2, K_3);
 }
 
 /**
@@ -102,18 +99,24 @@ int IdxMin(int *L, int a, int b)
  * \brief Effectue le Tri sélection d'une liste T
  * \param T Une liste d'entiers.
  * \param n La taille de la liste.
+ * \return Nombre de comparaisons
  */
-void TriSelection(int *T, int n)
+int TriSelection(int *T, int n)
 {
+    int K = 0;
+
     int ptr = 0;
     while (ptr < n)
     {
+        K += n - ptr + 1;
         int min_i = IdxMin(T, ptr, n);
         int tmp = T[ptr];
         T[ptr] = T[min_i];
         T[min_i] = tmp;
         ptr++;
     }
+
+    return K + ptr;
 }
 
 /**
@@ -121,8 +124,10 @@ void TriSelection(int *T, int n)
  * \param L Une liste d'entiers.
  * \param n La taille de la liste.
  */
-void TriBulles(int *L, int n)
+int TriBulles(int *L, int n)
 {
+    int K = 0;
+
     int ptr = 0;
     while (ptr < n)
     {
@@ -134,11 +139,15 @@ void TriBulles(int *L, int n)
                 int tmp = L[i];
                 L[i] = L[i + 1];
                 L[i + 1] = tmp;
+                K++;
             }
             i++;
         }
+        K += i;
         ptr++;
     }
+
+    return K + ptr;
 }
 
 /**
@@ -146,8 +155,10 @@ void TriBulles(int *L, int n)
  * \param T Une liste d'entiers.
  * \param n La taille de la liste.
  */
-void TriInsertion(int *T, int n)
+int TriInsertion(int *T, int n)
 {
+    int K = 0;
+
     int i = 0;
     while (i < n)
     {
@@ -158,6 +169,9 @@ void TriInsertion(int *T, int n)
             j--;
         }
         T[j] = current;
+        K += j - i + 1;
         i++;
     }
+
+    return K + i;
 }

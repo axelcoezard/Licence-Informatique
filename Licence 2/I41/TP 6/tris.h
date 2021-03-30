@@ -8,8 +8,8 @@ void show_list(int *L, int n);
 
 int IdxMin(int *L, int a, int b);
 
-void TriSelection(int *T, int n);
+int TriSelection(int *T, int n);
 
-void TriBulles(int *L, int n);
+int TriBulles(int *L, int n);
 
-void TriInsertion(int *T, int n);
+int TriInsertion(int *T, int n);
