@@ -23,6 +23,27 @@ int main(int argc, char **argv)
     show_list(L_3, L_size);
     TriInsertion(L_3, L_size);
     show_list(L_3, L_size);
+
+    int *perms = generate_perms(L_size);
+    show_list(perms, L_size);
+}
+
+int *generate_perms(int n)
+{
+    int *perms = malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++)
+        perms[i] = i + 1;
+
+    srand(time(NULL));
+    for (int i = 0; i < n; i++)
+    {
+        int index = rand() % n;
+        int tmp = perms[i];
+        perms[i] = perms[index];
+        perms[index] = tmp;
+    }
+
+    return perms;
 }
 
 int *generate_list(int n, int max)
