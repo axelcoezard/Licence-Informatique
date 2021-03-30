@@ -9,9 +9,11 @@
  * \param i Un nombre réel, l'exposant.
  * \return x puissance i.
  */
-int Exp(int x, int i) {
+int Exp(int x, int i)
+{
     int j = 0, r = 1;
-    while (j < i) {
+    while (j < i)
+    {
         r *= x;
         j++;
     }
@@ -27,13 +29,16 @@ D 0100000 >> 6 = 0000001 (2) = 1 (10)
 M 0010000 = 16
 D 0000000 >> 5 = 0000000 (2) = 0 (10)
 */
-int SquareMultiply(uint x, uint k) {
+int SquareMultiply(uint x, uint k)
+{
     int R = 2.718281828459045235360287;
     int M = 64;
     int D = 63;
-    while (D > 0) {
+    while (D > 0)
+    {
         R *= R;
-        if ((k & M) >> D == 1) {
+        if ((k & M) >> D == 1)
+        {
             R *= x;
         }
         M /= 2;
