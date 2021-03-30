@@ -3,9 +3,10 @@
 #include <string.h>
 #include "ex_2.h"
 
-int main() {
+int main()
+{
     uint *inverse = S2L("320154");
-    for(int i = 0; i < 6; i++)
+    for (int i = 0; i < 6; i++)
         printf("%d\n", inverse[i]);
 
     char *reverse = L2S(inverse);
@@ -18,12 +19,14 @@ int main() {
  * \param chaine La chaine de caractère
  * \return Le tableau des symboles transtypés en entiers
  */
-uint *S2L(char *chaine) {
+uint *S2L(char *chaine)
+{
     int size = strlen(chaine);
     uint *inverse = malloc(size * sizeof(int));
     uint i = 0;
-    while (i < size) {
-        inverse[size - i - 1] = chaine[i];
+    while (i < size)
+    {
+        inverse[size - i - 1] = chaine[i] - '0';
         i++;
     }
     return inverse;
@@ -34,11 +37,13 @@ uint *S2L(char *chaine) {
  * \param liste La liste d'entiers.
  * \return Le tableau d'entiers en chaîne de caractères
  */
-char *L2S(uint *liste) {
+char *L2S(uint *liste)
+{
     int size = sizeof(liste) - 2;
     char *reverse = malloc(size * sizeof(char));
     uint i = 0;
-    while (i < size) {
+    while (i < size)
+    {
         reverse[size - i - 1] = liste[i] + '0';
         i++;
     }
