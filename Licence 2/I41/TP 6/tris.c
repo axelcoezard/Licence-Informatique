@@ -7,11 +7,17 @@
 int main(int argc, char **argv)
 {
     int L_size = atoi(argv[1]);
-    int *L = generate_list(L_size, 100);
-    show_list(L, L_size);
+    int *L_1 = generate_list(L_size, 100);
+    show_list(L_1, L_size);
 
-    TriSelection(L, L_size);
-    show_list(L, L_size);
+    TriSelection(L_1, L_size);
+    show_list(L_1, L_size);
+
+    int *L_2 = generate_list(L_size, 100);
+    show_list(L_2, L_size);
+
+    TriBulles(L_2, L_size);
+    show_list(L_2, L_size);
 }
 
 int *generate_list(int n, int max)
@@ -58,6 +64,22 @@ void TriSelection(int *T, int n)
 
 void TriBulles(int *L, int n)
 {
+    int ptr = 0;
+    while (ptr < n)
+    {
+        int i = 0;
+        while (i < n - 1)
+        {
+            if (L[i + 1] < L[i])
+            {
+                int tmp = L[i];
+                L[i] = L[i + 1];
+                L[i + 1] = tmp;
+            }
+            i++;
+        }
+        ptr++;
+    }
 }
 
 void TriInsertion(int *T, int n)
