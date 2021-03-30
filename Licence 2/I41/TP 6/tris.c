@@ -7,22 +7,21 @@
 int main(int argc, char **argv)
 {
     int L_size = atoi(argv[1]);
+
+    // Test du tri Sélection
     int *L_1 = generate_list(L_size, 100);
     show_list(L_1, L_size);
-
     TriSelection(L_1, L_size);
     show_list(L_1, L_size);
-
+    // Test du tri à Bulles
     int *L_2 = generate_list(L_size, 100);
     show_list(L_2, L_size);
-
     TriBulles(L_2, L_size);
     show_list(L_2, L_size);
-
+    // Test du tri Insertion
     int *L_3 = generate_list(L_size, 100);
     show_list(L_3, L_size);
-
-    TriBulles(L_3, L_size);
+    TriInsertion(L_3, L_size);
     show_list(L_3, L_size);
 }
 
