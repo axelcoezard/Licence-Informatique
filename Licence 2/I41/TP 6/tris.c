@@ -28,6 +28,11 @@ int main(int argc, char **argv)
     show_list(perms, L_size);
 }
 
+/**
+ * \brief Génère une tableau contenant n entiers permutés.
+ * \param n La taille du tableau et la valeur maximal de chaque entier.
+ * \return un tableau d'entiers permutés.
+ */
 int *generate_perms(int n)
 {
     int *perms = malloc(n * sizeof(int));
@@ -46,6 +51,12 @@ int *generate_perms(int n)
     return perms;
 }
 
+/**
+ * \brief Génère une liste de n entiers aléatoires.
+ * \param n La taille du tableau.
+ * \param max La valeur maximal de chaque entier.
+ * \return Une liste d'entiers.
+ */
 int *generate_list(int n, int max)
 {
     int *list = malloc(n * sizeof(int));
@@ -56,6 +67,11 @@ int *generate_list(int n, int max)
     return list;
 }
 
+/**
+ * \brief Affiche une liste L dans le terminal pour le débug.
+ * \param L Une liste
+ * \param n La taille de la liste
+ */
 void show_list(int *L, int n)
 {
     for (int i = 0; i < n; i++)
@@ -63,6 +79,13 @@ void show_list(int *L, int n)
     printf("\n");
 }
 
+/**
+ * \brief Renvoie l'indice du plus petit élement d'une sous-liste de L.
+ * \param L Une liste d'entiers.
+ * \param a Borne inférieur de la sous-liste.
+ * \param b Borne supérieur de la sous-liste.
+ * \return L'indice du plus petit élement.
+ */
 int IdxMin(int *L, int a, int b)
 {
     int i = a, min_i = a;
@@ -75,6 +98,11 @@ int IdxMin(int *L, int a, int b)
     return min_i;
 }
 
+/**
+ * \brief Effectue le Tri sélection d'une liste T
+ * \param T Une liste d'entiers.
+ * \param n La taille de la liste.
+ */
 void TriSelection(int *T, int n)
 {
     int ptr = 0;
@@ -88,6 +116,11 @@ void TriSelection(int *T, int n)
     }
 }
 
+/**
+ * \brief Effectue le Tri à Bulles d'une liste L
+ * \param L Une liste d'entiers.
+ * \param n La taille de la liste.
+ */
 void TriBulles(int *L, int n)
 {
     int ptr = 0;
@@ -108,6 +141,11 @@ void TriBulles(int *L, int n)
     }
 }
 
+/**
+ * \brief Effectue le Tri Insertion d'une liste T
+ * \param T Une liste d'entiers.
+ * \param n La taille de la liste.
+ */
 void TriInsertion(int *T, int n)
 {
     int i = 0;
