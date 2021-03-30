@@ -18,6 +18,12 @@ int main(int argc, char **argv)
 
     TriBulles(L_2, L_size);
     show_list(L_2, L_size);
+
+    int *L_3 = generate_list(L_size, 100);
+    show_list(L_3, L_size);
+
+    TriBulles(L_3, L_size);
+    show_list(L_3, L_size);
 }
 
 int *generate_list(int n, int max)
@@ -68,7 +74,7 @@ void TriBulles(int *L, int n)
     while (ptr < n)
     {
         int i = 0;
-        while (i < n - 1)
+        while (i < n - ptr - 1)
         {
             if (L[i + 1] < L[i])
             {
@@ -84,6 +90,18 @@ void TriBulles(int *L, int n)
 
 void TriInsertion(int *T, int n)
 {
+    int i = 0;
+    while (i < n)
+    {
+        int j = i, current = T[i];
+        while (j > 0 && T[j - 1] > current)
+        {
+            T[j] = T[j - 1];
+            j--;
+        }
+        T[j] = current;
+        i++;
+    }
 }
 
 ullong TrierTout(int n)
