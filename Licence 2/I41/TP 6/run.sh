@@ -1,0 +1,1 @@
+gcc -g -Wall tris.c && ./a.out 10
