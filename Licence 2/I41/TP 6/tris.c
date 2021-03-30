@@ -123,8 +123,3 @@ void TriInsertion(int *T, int n)
         i++;
     }
 }
-
-ullong TrierTout(int n)
-{
-    return 0;
-}

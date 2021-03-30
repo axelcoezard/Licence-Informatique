@@ -13,5 +13,3 @@ void TriSelection(int *T, int n);
 void TriBulles(int *L, int n);
 
 void TriInsertion(int *T, int n);
-
-ullong TrierTout(int n);
