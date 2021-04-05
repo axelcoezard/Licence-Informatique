@@ -1,0 +1,1 @@
+gcc -w rsa.c -lm -lgmp && ./a.out

@@ -1,0 +1,1 @@
+gcc -w md9.c -lm -lgmp && ./a.out
