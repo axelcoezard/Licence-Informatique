@@ -74,12 +74,12 @@ int Entasser(int *T, uint n)
 
 int TriTas(int *T, uint n)
 {
-    uint k = n;
+    uint k = n - 1;
     int C = Entasser(T, n) + k;
     while (k > 0)
     {
-        Echanger(T, 1, k);
-        C += Tamiser(T, 1, k - 1);
+        Echanger(T, 0, k - 1);
+        C += Tamiser(T, 0, k - 2);
         k--;
     }
     return C;
