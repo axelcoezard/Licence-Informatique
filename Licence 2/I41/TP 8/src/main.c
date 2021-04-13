@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     t_list listA = {n, valuesA};
     t_list listB = {n, valuesB};
 
-    merge(listA, 0, (n - 1) / 2, n - 1);
+    merge(listA, 0, 5, 10);
     // merge(listA, 0, n - 1);
 
     for (int i = 0; i < n; i++)
@@ -36,17 +36,17 @@ void copy(t_list X, uint i, t_list Y, uint j, uint n)
 
 void merge(t_list L, uint p, uint q, uint r)
 {
-    int Gn = q - p + 1, Dn = r - q;
+    int Gn = q - p, Dn = r - q;
     t_list G = {Gn, malloc(Gn * sizeof(int))};
     t_list D = {Dn, malloc(Dn * sizeof(int))};
 
     copy(L, p, G, 0, Gn);
-    copy(L, q + 1, D, 0, Dn);
+    copy(L, q, D, 0, Dn);
 
     int i = 0, j = 0, k = p;
-    while (i <= Gn && j <= Dn)
+    while (i < Gn && j < Dn)
     {
-        if (G.values[i] < D.values[j])
+        if (G.values[i] <= D.values[j])
             L.values[k] = G.values[i++];
         else
             L.values[k] = D.values[j++];
