@@ -12,9 +12,9 @@ int ft_isprint(int c);
 
 int main(int argc, char **argv)
 {
-    char *msg = cypher("LOL, t'as bien galere pour dechiffrer ce message qui sert a rien! :P", 7);
+    char *msg = cypher("LOL, t'as bien galere pour dechiffrer ce message qui sert a rien! :P", 11);
     printf("%s\n", msg);
-    char *demsg = decypher(msg, 7);
+    char *demsg = decypher(msg, 11);
     printf("%s\n", demsg);
 }
 
