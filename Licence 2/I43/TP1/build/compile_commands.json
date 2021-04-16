@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/axelcoezard/Documents/Licence-Informatique/Licence 2/I43/TP1/build",
-  "command": "/bin/gcc-9   -g   -o CMakeFiles/I43-TP1.dir/src/vigenere.c.o   -c \"/home/axelcoezard/Documents/Licence-Informatique/Licence 2/I43/TP1/src/vigenere.c\"",
-  "file": "/home/axelcoezard/Documents/Licence-Informatique/Licence 2/I43/TP1/src/vigenere.c"
-}
-]

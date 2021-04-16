@@ -12,14 +12,14 @@ int ft_isprint(int c);
 
 int main(int argc, char **argv)
 {
-    char *msg = cypher(" Ceci est un rappel sur le chiffre de Vigenere", "lundi");
+    char *msg = cypher("Ceci est un rappel sur le chiffre de Vigenere", "lundi");
     // char *msg = cypher("LOL, t'as bien galere pour dechiffrer ce message qui sert a rien! :P", "lundi");
     printf("%s\n", msg);
     char *demsg = decypher(msg, "lundi");
     printf("%s\n", demsg);
 }
 
-char *cypher(char *message, char *key)
+char *generic_cypher(char *message, char *key, int way)
 {
     int len_message = ft_strlen(message);
     int len_key = ft_strlen(key);
@@ -29,32 +29,27 @@ char *cypher(char *message, char *key)
     while (i < len_message)
     {
         char c = message[i];
-        cypher[i] = (c + key[i % len_key]) % ASCII_SIZE;
+        cypher[i] = c + key[i % len_key] * way % ASCII_SIZE;
         i++;
     }
 
     return cypher;
 }
 
+char *cypher(char *message, char *key)
+{
+    return generic_cypher(message, key, 1);
+}
+
 char *decypher(char *message, char *key)
 {
-    int len_message = ft_strlen(message);
-    int len_key = ft_strlen(key);
-    char *decypher = malloc(len_message * sizeof(char));
-
-    int i = 0;
-    while (i < len_message)
-    {
-        char c = message[i];
-        decypher[i] = (c - key[i % len_key]) % ASCII_SIZE;
-        i++;
-    }
-
-    return decypher;
+    return generic_cypher(message, key, -1);
 }
 
 char *analysis(char *message)
 {
+    // TO-DO: Trouver la longueur de la clef.
+    // TO-DO: Trouver la clef.
 }
 
 int ft_strlen(const char *s)
