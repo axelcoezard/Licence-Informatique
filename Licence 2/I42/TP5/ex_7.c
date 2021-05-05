@@ -1,20 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <signal.h>
 
-typedef char* string;
+/**
+ *  
+ */
+int main(int argc, char **argv)
+{
+    int i;
 
-int main() {
-    string commandes[3] = {
-        "who", "ls" ,"pwd"
-    };
-
-    for(int i = 0; i < 3; i++) {
-        if (fork() == 0) {
-            execlp(commandes[i], commandes[i], NULL);
+    i = 1;
+    while (i < argc)
+    {
+        if (fork() == 0)
+        {
+            execlp(argv[i], argv[i], NULL);
+            exit(0);
         }
-        wait(1);
-        sleep(2);
-    }    
+        wait(0);
+        i++;
+    }
+    exit(0);
 }
