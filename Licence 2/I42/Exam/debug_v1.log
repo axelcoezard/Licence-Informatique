@@ -1,0 +1,105 @@
+[3;J[H[2J================
+Essai avec le fichier ficPI.txt
+Fils 1 cherche 3 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+Fils 2 cherche 31 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+Fils 3 cherche 314 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+Fils 4 cherche 3141 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+Fils 5 cherche 31415 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+Fils 6 cherche 314159 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+PERE : Reponse du 6 ieme grep: 1
+Fils 7 cherche 3141592 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+PERE : Reponse du 6 ieme grep: 1
+PERE : Reponse du 7 ieme grep: 1
+Fils 8 cherche 31415926 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+PERE : Reponse du 6 ieme grep: 1
+PERE : Reponse du 7 ieme grep: 1
+PERE : Reponse du 8 ieme grep: 1
+Fils 9 cherche 314159265 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+PERE : Reponse du 6 ieme grep: 1
+PERE : Reponse du 7 ieme grep: 1
+PERE : Reponse du 8 ieme grep: 1
+PERE : Reponse du 9 ieme grep: 1
+Fils 10 cherche 3141592653 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+PERE : Reponse du 6 ieme grep: 1
+PERE : Reponse du 7 ieme grep: 1
+PERE : Reponse du 8 ieme grep: 1
+PERE : Reponse du 9 ieme grep: 1
+PERE : Reponse du 10 ieme grep: 1
+Fils 11 cherche 31415926535 dans fichier
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+PERE : Reponse du 6 ieme grep: 1
+PERE : Reponse du 7 ieme grep: 1
+PERE : Reponse du 8 ieme grep: 1
+PERE : Reponse du 9 ieme grep: 1
+PERE : Reponse du 10 ieme grep: 1
+PERE : Reponse du 11 ieme grep: 1
+PERE : Reponse du 12 ieme grep: 0
+PERE : fils numero 11 a trouve la plus longue chaine pour PI, soit : 31415926535
+PERE : Reponse du 1 ieme grep: 46
+PERE : Reponse du 2 ieme grep: 4
+PERE : Reponse du 3 ieme grep: 1
+PERE : Reponse du 4 ieme grep: 1
+PERE : Reponse du 5 ieme grep: 1
+PERE : Reponse du 6 ieme grep: 1
+PERE : Reponse du 7 ieme grep: 1
+PERE : Reponse du 8 ieme grep: 1
+PERE : Reponse du 9 ieme grep: 1
+PERE : Reponse du 10 ieme grep: 1
+PERE : Reponse du 11 ieme grep: 1
+Fils 12 cherche 314159265358 dans fichier
+================
+Essai avec le fichier ficPIb.txt
+Fils 1 cherche 3 dans fichier
+PERE : Reponse du 1 ieme grep: 92
+Fils 2 cherche 31 dans fichier
+PERE : Reponse du 1 ieme grep: 92
+PERE : Reponse du 2 ieme grep: 9
+PERE : Reponse du 3 ieme grep: 0
+PERE : fils numero 2 a trouve la plus longue chaine pour PI, soit : 31
+PERE : Reponse du 1 ieme grep: 92
+PERE : Reponse du 2 ieme grep: 9
+Fils 3 cherche 314 dans fichier
