@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# EXO 26 de 2018
+# EXO 26 de 2017
 
 for arg in $@
 do
